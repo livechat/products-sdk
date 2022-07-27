@@ -1,0 +1,22 @@
+{
+  "name": "products-sdk",
+  "version": "1.0.0",
+  "description": "The collection of sdk's for our products to help developers with building integrations",
+  "main": "index.js",
+  "repository": "git@github.com:livechat/products-sdk.git",
+  "author": "j.sikora@livechat.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "dev": "turbo run dev"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "turbo": "^1.3.4"
+  }
+}
