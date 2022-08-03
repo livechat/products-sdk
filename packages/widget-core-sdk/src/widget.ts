@@ -1,5 +1,5 @@
-import { IConnection, ConnectionEmitter } from '../connection';
-import { Omit } from '../../utils/types';
+import { IConnection, ConnectionEmitter } from './connection';
+import { Omit } from './utils/types';
 
 export type AnyWidgetApi = { [key: string]: any };
 
