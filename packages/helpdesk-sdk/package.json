@@ -1,11 +1,11 @@
 {
   "name": "@livechat/helpdesk-sdk",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "SDK for extending HelpDesk App",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/livechat/products-sdk.git"
+    "url": "https://github.com/livechat/products-sdk.git"
   },
   "files": [
     "dist",
@@ -26,7 +26,8 @@
   "dependencies": {
     "@babel/runtime": "^7.2.0",
     "@livechat/mitt": "0.1.2",
-    "@livechat/postmessage": "0.3.2"
+    "@livechat/postmessage": "0.3.2",
+    "@livechat/widget-core-sdk": "1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",

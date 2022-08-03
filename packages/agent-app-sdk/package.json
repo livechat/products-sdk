@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/livechat/agent-app-sdk.git"
+    "url": "https://github.com/livechat/products-sdk.git"
   },
   "bugs": {
     "url": "https://github.com/livechat/agent-app-sdk/issues"
