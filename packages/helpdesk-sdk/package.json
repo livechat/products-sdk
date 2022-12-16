@@ -1,6 +1,6 @@
 {
   "name": "@livechat/helpdesk-sdk",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "SDK for extending HelpDesk App",
   "license": "MIT",
   "repository": {
@@ -21,13 +21,14 @@
     "prepublishOnly": "npm run test:ci && npm run build",
     "test": "jest",
     "test:ci": "jest --ci",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
     "@livechat/mitt": "0.1.2",
     "@livechat/postmessage": "0.3.2",
-    "@livechat/widget-core-sdk": "1.0.0"
+    "@livechat/widget-core-sdk": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
