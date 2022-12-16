@@ -4,8 +4,7 @@ import {
   createConnection,
   IConnection
 } from '@livechat/widget-core-sdk';
-import { withCustomerProfile } from '../shared/customer-profile';
-import { withRichMessages } from '../shared/rich-messages';
+import { withTicketInfo } from './ticket-info';
 import assertSection from './custom-sections';
 import {
   IDetailsWidgetEvents,
@@ -17,15 +16,6 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
   const base = createWidget<IDetailsWidgetApi, IDetailsWidgetEvents>(
     connection,
     {
-      putMessage(text: string): Promise<void> {
-        return connection.sendMessage('put_message', text);
-      },
-      watchMessages(): Promise<void> {
-        return connection.sendMessage('watch_messages');
-      },
-      refreshSession(): Promise<void> {
-        return connection.sendMessage('plugin_loaded');
-      },
       modifySection(section: ISection): Promise<void> {
         assertSection(section);
         return connection.sendMessage('customer_details_section', section);
@@ -33,7 +23,7 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
     }
   );
 
-  const widget = withAmplitude(withRichMessages(withCustomerProfile(base)));
+  const widget = withAmplitude(withTicketInfo(base));
 
   return widget;
 }

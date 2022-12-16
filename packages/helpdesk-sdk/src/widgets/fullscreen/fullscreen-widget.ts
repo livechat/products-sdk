@@ -1,9 +1,12 @@
-import { IConnection } from '../connection';
-import { createWidget } from '../widget';
-import { withAmplitude } from '../amplitude';
+import {
+  createWidget,
+  withAmplitude,
+  createConnection,
+  IConnection
+} from '@livechat/widget-core-sdk';
 import { IFullscreenWidgetApi, IFullscreenWidgetEvents } from './interfaces';
 
-export default function FullscreenWidget(
+export function FullscreenWidget(
   connection: IConnection<IFullscreenWidgetEvents>
 ) {
   const base = createWidget<IFullscreenWidgetApi, IFullscreenWidgetEvents>(
@@ -17,5 +20,15 @@ export default function FullscreenWidget(
       }
     }
   );
+
   return withAmplitude(base);
+}
+
+export interface IFullscreenWidget
+  extends ReturnType<typeof FullscreenWidget> {}
+
+export default function createFullscreenWidget(): Promise<IFullscreenWidget> {
+  return createConnection<IFullscreenWidgetEvents>().then(connection =>
+    FullscreenWidget(connection)
+  );
 }

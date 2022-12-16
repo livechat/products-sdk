@@ -1,4 +1,4 @@
 export {
   default as createFullscreenWidget,
   IFullscreenWidget
-} from './fullscreen';
+} from './fullscreen-widget';

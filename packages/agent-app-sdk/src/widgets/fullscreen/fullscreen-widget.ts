@@ -1,8 +1,27 @@
 import {
+  createWidget,
+  withAmplitude,
   createConnection,
-  FullscreenWidget,
-  IFullscreenWidgetEvents
+  IConnection
 } from '@livechat/widget-core-sdk';
+import { IFullscreenWidgetApi, IFullscreenWidgetEvents } from './interfaces';
+
+export function FullscreenWidget(
+  connection: IConnection<IFullscreenWidgetEvents>
+) {
+  const base = createWidget<IFullscreenWidgetApi, IFullscreenWidgetEvents>(
+    connection,
+    {
+      setNotificationBadge(count: number | null): Promise<void> {
+        return connection.sendMessage(
+          'set_fullscreen_widget_notification_badge',
+          count
+        );
+      }
+    }
+  );
+  return withAmplitude(base);
+}
 
 export interface IFullscreenWidget
   extends ReturnType<typeof FullscreenWidget> {}
