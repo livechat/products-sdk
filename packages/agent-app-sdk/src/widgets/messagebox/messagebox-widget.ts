@@ -1,15 +1,20 @@
-import { createWidget } from '../shared/widget';
-import { withAmplitude } from '../shared/amplitude';
+import {
+  createWidget,
+  withAmplitude,
+  createConnection,
+  IConnection
+} from '@livechat/widget-core-sdk';
 import { withCustomerProfile } from '../shared/customer-profile';
 import { withRichMessages } from '../shared/rich-messages';
-import { IConnection, createConnection } from '../connection';
 import {
   IMessageBoxWidgetApi,
   IMessageBoxWidgetEvents,
   IRichMessage
 } from './interfaces';
 
-function MessageBoxWidget(connection: IConnection<IMessageBoxWidgetEvents>) {
+export function MessageBoxWidget(
+  connection: IConnection<IMessageBoxWidgetEvents>
+) {
   const base = createWidget<IMessageBoxWidgetApi, IMessageBoxWidgetEvents>(
     connection,
     {

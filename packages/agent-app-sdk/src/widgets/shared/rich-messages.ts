@@ -1,4 +1,4 @@
-import { WidgetMixin } from './widget';
+import { WidgetMixin } from '@livechat/widget-core-sdk';
 
 export interface IRichMessagesApi {
   sendQuickReplies(title, buttons): Promise<void>;

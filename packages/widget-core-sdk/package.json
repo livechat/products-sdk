@@ -1,7 +1,7 @@
 {
-  "name": "@livechat/helpdesk-sdk",
+  "name": "@livechat/widget-core-sdk",
   "version": "0.0.0",
-  "description": "SDK for extending HelpDesk App",
+  "description": "Products widget core library",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,9 +11,9 @@
     "dist",
     "types"
   ],
-  "main": "dist/helpdesk-sdk.cjs.js",
-  "module": "dist/helpdesk-sdk.es.js",
-  "unpkg": "dist/helpdesk-sdk.umd.min.js",
+  "main": "dist/widget-core-sdk.cjs.js",
+  "module": "dist/widget-core-sdk.es.js",
+  "unpkg": "dist/widget-core-sdk.umd.min.js",
   "typings": "types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
@@ -27,8 +27,7 @@
   "dependencies": {
     "@babel/runtime": "^7.2.0",
     "@livechat/mitt": "0.1.2",
-    "@livechat/postmessage": "0.3.2",
-    "@livechat/widget-core-sdk": "*"
+    "@livechat/postmessage": "0.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",

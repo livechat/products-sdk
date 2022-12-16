@@ -2,6 +2,10 @@
 
 This SDK is a set of tools that will help you integrate your apps with the [LiveChat Agent App](https://my.livechatinc.com/).
 
+[![mit](https://img.shields.io/badge/license-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
+![npm](https://img.shields.io/npm/v/@livechat/agent-app-sdk?label=version)
+[![turborepo](https://img.shields.io/badge/maintained%20with-turborepo-blueviolet)](https://turbo.build/repo)
+
 For full documentation please head to [LiveChat Docs](https://developers.livechatinc.com/docs/extending-ui/extending-agent-app/).
 
 ## Installation
@@ -230,3 +234,11 @@ This widget currently does not support any events.
 #### `setNotificationBadge(count: number | null): Promise<void>`
 
 Displays a red badge on top of the Fullscreen app icon. Use this to notify Agents there’s something important inside the widget. Make sure Agents can dismiss the notification to avoid cluttered UI.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first, so we can discuss what you would like to change. Follow a [Contributing guide](https://github.com/livechat/products-sdk/blob/master/CONTRIBUTING.md) for more details.
+
+## License
+
+The code and documentation in this project are released under the [MIT License](https://choosealicense.com/licenses/mit/).

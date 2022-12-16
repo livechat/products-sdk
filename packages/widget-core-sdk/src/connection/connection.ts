@@ -1,7 +1,7 @@
 import mitt from '@livechat/mitt';
 import * as drivers from './driver';
 import { IConnectionDriver, IConnection, IInboxMessage } from './interfaces';
-import { getQueryParam } from '../../utils/query-params';
+import { getQueryParam } from '../utils/query-params';
 
 const PLUGIN_ID_PARAM = 'plugin_id';
 const CONNECTION_PARAM = 'connection';
