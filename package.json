@@ -14,7 +14,7 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "dev": "turbo run dev",
-    "clean": "turbo run clean && rm -rf node_modules",
+    "clean": "turbo run clean",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build lint test && changeset publish"
