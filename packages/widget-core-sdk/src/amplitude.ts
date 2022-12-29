@@ -4,6 +4,7 @@ export interface IAmplitudeApi {
   trackEvent(name: string, properties: object): Promise<void>;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const withAmplitude: WidgetMixin<IAmplitudeApi, {}> = widget => ({
   ...widget,
   trackEvent(name: string, properties: object): Promise<void> {

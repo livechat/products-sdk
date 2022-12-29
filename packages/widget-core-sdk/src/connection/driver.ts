@@ -8,6 +8,7 @@ import {
 import { getIsEventOriginAllowed } from './helpers';
 
 export function Plain(): IConnectionDriver {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   let currentListener: ConnectionListener = (_: IInboxMessage) => {};
 
   function handleEvent(event) {
@@ -32,10 +33,12 @@ export function Plain(): IConnectionDriver {
 }
 
 interface ITrustedChild {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   call: (method: string, ...args: any[]) => Promise<void>;
 }
 
 export function Trusted(): Promise<IConnectionDriver> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   let currentListener: ConnectionListener = (_: IInboxMessage) => {};
 
   function handleMessage(message: IInboxMessage) {
@@ -48,6 +51,7 @@ export function Trusted(): Promise<IConnectionDriver> {
         currentListener = listener;
       },
       send(message: IOutboxMessage) {
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         return child.call('handle', message).then(() => {});
       }
     })

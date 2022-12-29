@@ -1,9 +1,10 @@
 import { IConnection, createConnection } from '@livechat/widget-core-sdk';
 import createDetailsWidget, { DetailsWidget } from './details-widget';
+import { IDetailsWidgetEvents } from './interfaces';
 import * as assertSection from './custom-sections';
 
-const createMockConnection = (): IConnection<{}> => {
-  const mockConnection: IConnection<{}> = {
+const createMockConnection = (): IConnection<IDetailsWidgetEvents> => {
+  const mockConnection: IConnection<IDetailsWidgetEvents> = {
     sendMessage: jest.fn(() => Promise.resolve()),
     emitter: jest.fn()
   };

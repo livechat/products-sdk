@@ -90,6 +90,8 @@ export interface ITagsComponent {
   };
 }
 
+// FIXME: fix "any" types from this interface
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface ITicketInfo {
   id: string;
   shortId: string;

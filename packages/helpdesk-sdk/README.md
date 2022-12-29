@@ -1,6 +1,6 @@
 # HelpDesk SDK
 
-This SDK is a set of tools that will help you integrate your apps with the [HelpDesk App](https://app.helpdesk.com//).
+This SDK is a set of tools that will help you integrate your apps with the [HelpDesk App](https://app.helpdesk.com/).
 
 [![mit](https://img.shields.io/badge/license-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 ![npm](https://img.shields.io/npm/v/@livechat/helpdesk-sdk?label=version)

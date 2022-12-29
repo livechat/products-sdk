@@ -5,6 +5,7 @@ export interface IRichMessagesApi {
   sendCards(cards): Promise<void>;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const withRichMessages: WidgetMixin<IRichMessagesApi, {}> = widget => ({
   ...widget,
   sendQuickReplies(title, buttons) {

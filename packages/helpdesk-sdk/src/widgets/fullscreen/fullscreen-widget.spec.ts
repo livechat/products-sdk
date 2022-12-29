@@ -1,8 +1,9 @@
 import { IConnection, createConnection } from '@livechat/widget-core-sdk';
 import createFullscreenWidget, { FullscreenWidget } from './fullscreen-widget';
+import { IFullscreenWidgetEvents } from './interfaces';
 
-const createMockConnection = (): IConnection<{}> => {
-  const mockConnection: IConnection<{}> = {
+const createMockConnection = (): IConnection<IFullscreenWidgetEvents> => {
+  const mockConnection: IConnection<IFullscreenWidgetEvents> = {
     sendMessage: jest.fn(() => Promise.resolve()),
     emitter: jest.fn()
   };

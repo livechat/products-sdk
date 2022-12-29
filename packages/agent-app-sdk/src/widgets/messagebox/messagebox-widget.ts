@@ -35,8 +35,7 @@ export function MessageBoxWidget(
   return widget;
 }
 
-export interface IMessageBoxWidget
-  extends ReturnType<typeof MessageBoxWidget> {}
+export type IMessageBoxWidget = ReturnType<typeof MessageBoxWidget>
 
 export default function createMessageBoxWidget(): Promise<IMessageBoxWidget> {
   return createConnection<IMessageBoxWidgetEvents>().then(connection =>

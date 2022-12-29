@@ -22,6 +22,7 @@ function Connection<Events>(
     const messageData = message.event_data;
 
     if (messageName.startsWith(MESSAGE_PREFIX)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       emitter.emit(<any>messageName.replace(MESSAGE_PREFIX, ''), messageData);
     }
   }
@@ -30,6 +31,7 @@ function Connection<Events>(
 
   return {
     emitter,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     sendMessage(name: string, data: any = null): Promise<void> {
       return driver.send({
         plugin_id: pluginId,

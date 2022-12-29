@@ -23,8 +23,7 @@ export function FullscreenWidget(
   return withAmplitude(base);
 }
 
-export interface IFullscreenWidget
-  extends ReturnType<typeof FullscreenWidget> {}
+export type IFullscreenWidget = ReturnType<typeof FullscreenWidget>
 
 export default function createFullscreenWidget(): Promise<IFullscreenWidget> {
   return createConnection<IFullscreenWidgetEvents>().then(connection =>
