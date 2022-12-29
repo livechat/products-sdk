@@ -18,11 +18,8 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint src --ext .ts --fix",
-    "prebuild": "rimraf dist && rimraf types",
-    "prepublishOnly": "npm run test:ci && npm run build",
     "test": "jest",
-    "test:ci": "jest --ci",
-    "test:watch": "jest --watch",
+    "prebuild": "rimraf dist && rimraf types",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
@@ -74,5 +71,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

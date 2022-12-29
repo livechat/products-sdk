@@ -23,10 +23,7 @@
     "build": "rollup -c",
     "prebuild": "rimraf dist && rimraf types",
     "lint": "eslint src --ext .ts --fix",
-    "prepublishOnly": "npm run test:ci && npm run build",
     "test": "jest",
-    "test:ci": "jest --ci",
-    "test:watch": "jest --watch",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
@@ -79,5 +76,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
