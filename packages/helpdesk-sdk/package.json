@@ -1,6 +1,6 @@
 {
   "name": "@livechat/helpdesk-sdk",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "SDK for extending HelpDesk App",
   "license": "MIT",
   "repository": {
