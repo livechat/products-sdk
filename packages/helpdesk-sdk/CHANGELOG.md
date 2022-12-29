@@ -1,5 +1,13 @@
 # @livechat/helpdesk-sdk
 
+## 1.0.2
+
+### Patch Changes
+
+- a9d63cb: Versioning fix
+- Updated dependencies [a9d63cb]
+  - @livechat/widget-core-sdk@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
