@@ -1,5 +1,13 @@
 # @livechat/agent-app-sdk
 
+## 1.6.1
+
+### Patch Changes
+
+- Packages visibility change
+- Updated dependencies
+  - @livechat/widget-core-sdk@1.0.1
+
 ## 1.6.0
 
 ### Minor Changes

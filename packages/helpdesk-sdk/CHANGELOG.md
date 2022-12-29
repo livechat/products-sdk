@@ -1,5 +1,13 @@
 # @livechat/helpdesk-sdk
 
+## 1.0.1
+
+### Patch Changes
+
+- Packages visibility change
+- Updated dependencies
+  - @livechat/widget-core-sdk@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

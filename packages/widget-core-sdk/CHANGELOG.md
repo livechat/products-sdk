@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.0.1
+
+### Patch Changes
+
+- Packages visibility change
+
 ## 1.0.0
 
 ### Major Changes
