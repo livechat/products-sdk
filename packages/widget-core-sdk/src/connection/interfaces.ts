@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Mitt } from '@livechat/mitt';
 
 type ConnectionEvents = { [event: string]: any };

@@ -1,8 +1,9 @@
 import { IConnection, createConnection } from '@livechat/widget-core-sdk';
 import createMessageBoxWidget, { MessageBoxWidget } from './messagebox-widget';
+import { IMessageBoxWidgetEvents } from './interfaces';
 
-const createMockConnection = (): IConnection<{}> => {
-  const mockConnection: IConnection<{}> = {
+const createMockConnection = (): IConnection<IMessageBoxWidgetEvents> => {
+  const mockConnection: IConnection<IMessageBoxWidgetEvents> = {
     sendMessage: jest.fn(() => Promise.resolve()),
     emitter: jest.fn()
   };

@@ -5,16 +5,13 @@
   "main": "index.js",
   "repository": "git@github.com:livechat/products-sdk.git",
   "license": "MIT",
-  "engines": {
-    "node": "15"
-  },
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "dev": "turbo run dev",
-    "clean": "turbo run clean",
+    "clean": "turbo run clean && rm -rf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build lint test && changeset publish"

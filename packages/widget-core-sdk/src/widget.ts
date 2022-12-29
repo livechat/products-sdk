@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IConnection, ConnectionEmitter } from './connection';
 
 import { Omit } from './utils/types';
@@ -26,6 +27,7 @@ export type WidgetMixin<Api, Events> = {
 
 export function createWidget<
   Api extends AnyWidgetApi,
+  // eslint-disable-next-line @typescript-eslint/ban-types
   Events extends AnyWidgetEvents = {}
 >(connection: IConnection<Events>, api: Api): Widget<Api, Events> {
   return {

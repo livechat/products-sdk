@@ -38,7 +38,7 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
   return widget;
 }
 
-export interface IDetailsWidget extends ReturnType<typeof DetailsWidget> {}
+export type IDetailsWidget = ReturnType<typeof DetailsWidget>;
 
 export default function createDetailsWidget(): Promise<IDetailsWidget> {
   let widget: IDetailsWidget;
