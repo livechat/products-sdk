@@ -1,5 +1,11 @@
 # @livechat/helpdesk-sdk
 
+## 1.0.3
+
+### Patch Changes
+
+- Fix for building umd bundles for agent-app-sdk and helpdesk-sdk.
+
 ## 1.0.2
 
 ### Patch Changes

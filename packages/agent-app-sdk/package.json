@@ -1,6 +1,6 @@
 {
   "name": "@livechat/agent-app-sdk",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "SDK for extending LiveChat's Agent App",
   "license": "MIT",
   "repository": {
