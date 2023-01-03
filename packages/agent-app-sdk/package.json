@@ -1,6 +1,6 @@
 {
   "name": "@livechat/agent-app-sdk",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "SDK for extending LiveChat's Agent App",
   "license": "MIT",
   "repository": {
@@ -30,7 +30,7 @@
     "@babel/runtime": "^7.2.0",
     "@livechat/mitt": "0.1.2",
     "@livechat/postmessage": "^0.3.2",
-    "@livechat/widget-core-sdk": "*"
+    "@livechat/widget-core-sdk": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",

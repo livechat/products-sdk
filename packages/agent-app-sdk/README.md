@@ -21,7 +21,7 @@ The NPM package is distributed both as a CommonJS and ES6 module. It should be u
 We also distrubute a UMD build of the package, which can be used directly in the browser.
 
 ```html
-<script src="https://unpkg.com/@livechat/agent-app-sdk@latest/dist/agentapp.umd.min.js"></script>
+<script src="https://unpkg.com/@livechat/agent-app-sdk@1.6.3/dist/agentapp.umd.min.js"></script>
 ```
 
 ## Basic usage

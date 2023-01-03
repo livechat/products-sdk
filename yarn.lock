@@ -1463,7 +1463,7 @@
 
 "@livechat/agent-app-sdk@file:/Users/jakubsikora/workspace/products-sdk/packages/agent-app-sdk":
   "resolved" "file:packages/agent-app-sdk"
-  "version" "1.5.2"
+  "version" "1.6.2"
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@livechat/mitt" "0.1.2"
@@ -1486,7 +1486,7 @@
 
 "@livechat/helpdesk-sdk@file:/Users/jakubsikora/workspace/products-sdk/packages/helpdesk-sdk":
   "resolved" "file:packages/helpdesk-sdk"
-  "version" "0.0.0"
+  "version" "1.0.2"
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@livechat/mitt" "0.1.2"
@@ -1567,7 +1567,7 @@
 
 "@livechat/widget-core-sdk@*", "@livechat/widget-core-sdk@file:/Users/jakubsikora/workspace/products-sdk/packages/widget-core-sdk":
   "resolved" "file:packages/widget-core-sdk"
-  "version" "0.0.0"
+  "version" "1.0.2"
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@livechat/mitt" "0.1.2"

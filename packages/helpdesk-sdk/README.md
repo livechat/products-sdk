@@ -21,7 +21,7 @@ The NPM package is distributed both as a CommonJS and ES6 module. It should be u
 We also distrubute a UMD build of the package, which can be used directly in the browser.
 
 ```html
-<script src="https://unpkg.com/@livechat/helpdesk-sdk@latest/dist/helpdesk-sdk.umd.min.js"></script>
+<script src="https://unpkg.com/@livechat/helpdesk-sdk@1.0.3/dist/helpdesk-sdk.umd.min.js"></script>
 ```
 
 ## Basic usage
@@ -63,7 +63,7 @@ All widgets share a common interface.
 You can use it to track the events happening in the HelpDesk App.
 
 ```js
-import { createDetailsWidget } from ‘@livechat/agent-app-sdk’;
+import { createDetailsWidget } from ‘@livechat/helpdesk-sdk’;
 
 createDetailsWidget().then(widget => {
   function onTicketInfo(ticketInfo) {

@@ -31,7 +31,7 @@ const makeBabelConfig = ({ useCoreJS = false, useESModules = true }) => ({
       {
         loose: true,
         modules: false,
-        ...(useCoreJS ? { useBuiltIns: 'usage', corejs: 3 } : {})
+        ...(useCoreJS ? { useBuiltIns: false, corejs: 3 } : {})
       }
     ]
   ]
