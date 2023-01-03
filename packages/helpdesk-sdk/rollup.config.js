@@ -31,7 +31,7 @@ const makeBabelConfig = ({ useCoreJS = false, useESModules = true }) => ({
       {
         loose: true,
         modules: false,
-        ...(useCoreJS ? { useBuiltIns: 'usage', corejs: 3 } : {})
+        ...(useCoreJS ? { useBuiltIns: false, corejs: 3 } : {})
       }
     ]
   ]
@@ -76,7 +76,7 @@ export default [
     output: {
       format: 'umd',
       file: pkg.unpkg,
-      name: 'LiveChat'
+      name: 'HelpDesk'
     },
     external: 'peers',
     env: 'production',
