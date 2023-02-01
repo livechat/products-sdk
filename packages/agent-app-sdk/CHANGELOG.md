@@ -1,5 +1,11 @@
 # @livechat/agent-app-sdk
 
+## 1.6.4
+
+### Patch Changes
+
+- 67087a7: Messagebox fix: Use correct type for string type
+
 ## 1.6.3
 
 ### Patch Changes
