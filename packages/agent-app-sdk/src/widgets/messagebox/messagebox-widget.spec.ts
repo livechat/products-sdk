@@ -49,7 +49,7 @@ describe('MessageBoxWidget', () => {
     expect(connection.sendMessage).toHaveBeenCalledWith(
       'put_messagebox_message',
       {
-        type: 'text',
+        type: 'message',
         value: 'foo'
       }
     );

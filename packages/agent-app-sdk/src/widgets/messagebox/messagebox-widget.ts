@@ -21,7 +21,7 @@ export function MessageBoxWidget(
       putMessage(msg: IRichMessage | string): Promise<void> {
         let data;
         if (typeof msg === 'string') {
-          data = { type: 'text', value: msg };
+          data = { type: 'message', value: msg };
         } else {
           data = { type: 'rich_message', payload: msg };
         }
@@ -35,7 +35,7 @@ export function MessageBoxWidget(
   return widget;
 }
 
-export type IMessageBoxWidget = ReturnType<typeof MessageBoxWidget>
+export type IMessageBoxWidget = ReturnType<typeof MessageBoxWidget>;
 
 export default function createMessageBoxWidget(): Promise<IMessageBoxWidget> {
   return createConnection<IMessageBoxWidgetEvents>().then(connection =>
