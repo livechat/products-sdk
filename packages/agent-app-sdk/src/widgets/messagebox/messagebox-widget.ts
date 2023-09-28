@@ -38,7 +38,12 @@ export function MessageBoxWidget(
 export type IMessageBoxWidget = ReturnType<typeof MessageBoxWidget>;
 
 export default function createMessageBoxWidget(): Promise<IMessageBoxWidget> {
-  return createConnection<IMessageBoxWidgetEvents>().then(connection =>
-    MessageBoxWidget(connection)
-  );
+  let widget: IMessageBoxWidget;
+
+  return createConnection<IMessageBoxWidgetEvents>()
+    .then(connection => {
+      widget = MessageBoxWidget(connection);
+      return connection.sendMessage('plugin_inited');
+    })
+    .then(() => widget);
 }
