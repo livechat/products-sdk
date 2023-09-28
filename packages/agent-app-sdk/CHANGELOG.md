@@ -1,5 +1,11 @@
 # @livechat/agent-app-sdk
 
+## 1.6.5
+
+### Patch Changes
+
+- b015d5d: [DPS-4103] Problem with initial load of customer profile in message-box plugins
+
 ## 1.6.4
 
 ### Patch Changes
