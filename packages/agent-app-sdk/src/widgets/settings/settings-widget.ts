@@ -14,7 +14,7 @@ export function SettingsWidget(
     {
       redirect(target: string): Promise<void> {
         return connection.sendMessage(
-          'settings_widget_redirect',
+          'redirect',
             target
         );
       }

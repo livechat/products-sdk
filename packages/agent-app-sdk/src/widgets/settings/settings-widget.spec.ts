@@ -39,12 +39,12 @@ describe('SettingsWidget', () => {
     // assert that the correct message was sent to the connection
     expect(connection.sendMessage).toHaveBeenNthCalledWith(
         1,
-        'settings_widget_redirect',
+        'redirect',
         'https://example.com/another/example'
     );
     expect(connection.sendMessage).toHaveBeenNthCalledWith(
         2,
-      'settings_widget_redirect',
+      'redirect',
         '/chats/S0M3CH4TID'
     );
   });
