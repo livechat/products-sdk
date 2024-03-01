@@ -13,10 +13,7 @@ export function SettingsWidget(
     connection,
     {
       redirect(target: string): Promise<void> {
-        return connection.sendMessage(
-          'redirect',
-            target
-        );
+        return connection.sendMessage('redirect', target);
       }
     }
   );
