@@ -5,7 +5,7 @@ import { ISettingsWidgetEvents } from './interfaces';
 const createMockConnection = (): IConnection<ISettingsWidgetEvents> => {
   return {
     sendMessage: jest.fn(() => Promise.resolve()),
-    emitter: jest.fn(),
+    emitter: jest.fn()
   };
 };
 
@@ -14,6 +14,15 @@ jest.mock('@livechat/widget-core-sdk', () => {
   return {
     ...originalModule,
     createConnection: jest.fn(() => Promise.resolve(createMockConnection()))
+  };
+});
+
+jest.mock('../shared/page-data', () => {
+  return {
+    withPageData: jest.fn().mockImplementation(widget => ({
+      ...widget,
+      getPageData: jest.fn()
+    }))
   };
 });
 
@@ -38,14 +47,14 @@ describe('SettingsWidget', () => {
 
     // assert that the correct message was sent to the connection
     expect(connection.sendMessage).toHaveBeenNthCalledWith(
-        1,
-        'redirect',
-        'https://example.com/another/example'
+      1,
+      'redirect',
+      'https://example.com/another/example'
     );
     expect(connection.sendMessage).toHaveBeenNthCalledWith(
-        2,
+      2,
       'redirect',
-        '/chats/S0M3CH4TID'
+      '/chats/S0M3CH4TID'
     );
   });
 });
@@ -66,12 +75,13 @@ describe('createSettingsWidget', () => {
   });
 
   it('returns the correct object with correct properties', async () => {
-    expect.assertions(4);
+    expect.assertions(5);
 
     const widget = await createSettingsWidget();
     expect(widget).toHaveProperty('redirect');
     expect(widget).toHaveProperty('on');
     expect(widget).toHaveProperty('off');
     expect(widget).toHaveProperty('sendMessage');
+    expect(widget).toHaveProperty('getPageData');
   });
 });
