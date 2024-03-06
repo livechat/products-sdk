@@ -1,5 +1,11 @@
 # @livechat/agent-app-sdk
 
+## 1.7.0
+
+### Minor Changes
+
+- 956327e: [PP-10273] added `createSettingsWidget` method that returns a new widget with redirect method
+
 ## 1.6.5
 
 ### Patch Changes
