@@ -64,6 +64,18 @@ createFullscreenWidget().then(widget => {
 });
 ```
 
+### `createSettingsWidget(): Promise<ISettingsWidget>`
+
+Creates a widget instance to be used as a Settings app.
+
+```js
+import { createSettingsWidget } from ‘@livechat/agent-app-sdk’;
+
+createSettingsWidget().then(widget => {
+  // do something with the widget
+});
+```
+
 ## Widgets (`IWidget`)
 
 All widgets share a common interface.
@@ -234,6 +246,36 @@ This widget currently does not support any events.
 #### `setNotificationBadge(count: number | null): Promise<void>`
 
 Displays a red badge on top of the Fullscreen app icon. Use this to notify Agents there’s something important inside the widget. Make sure Agents can dismiss the notification to avoid cluttered UI.
+
+## Settings widget (`ISettingsWidget`)
+
+### Events
+
+#### `page_data`
+
+Emitted when widget in initialized. The handler will get the main window page data object as an argument:
+
+```ts
+interface IPageData {
+  queryParams: object;
+}
+```
+
+### Methods
+
+#### `getPageData(): IPageData | null`
+
+Gets the main window page data recorded most recently. Returns the `IPageData` object, which is identical to the one emitted by the `page_data` event or `null` (if no data were registered).
+
+#### `redirect(target: string): Promise<void>`
+
+Redirects using the main window. Calling this method will send postmessage to Agent App, witch will be handled there. After that, redirect using `window` object is performed.
+
+```javascript
+const target = 'https://example.com';
+
+widget.redirect(target);
+```
 
 ## Contributing
 
