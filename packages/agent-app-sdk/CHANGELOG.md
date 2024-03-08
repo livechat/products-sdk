@@ -1,5 +1,11 @@
 # @livechat/agent-app-sdk
 
+## 1.8.0
+
+### Minor Changes
+
+- 01228cd: [PP-10296] added `page_data` event that returns a query params from the main window only for Settings apps
+
 ## 1.7.0
 
 ### Minor Changes
