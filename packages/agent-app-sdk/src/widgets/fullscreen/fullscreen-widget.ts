@@ -17,13 +17,22 @@ export function FullscreenWidget(
           'set_fullscreen_widget_notification_badge',
           count
         );
+      },
+      navigate(pathname: string): Promise<void> {
+        return connection.sendMessage(
+          'navigate_from_fullscreen_widget',
+          pathname
+        );
+      },
+      setReportsFilters(filters: any): Promise<void> {
+        return connection.sendMessage('set_reports_filters', filters);
       }
     }
   );
   return withAmplitude(base);
 }
 
-export type IFullscreenWidget = ReturnType<typeof FullscreenWidget>
+export type IFullscreenWidget = ReturnType<typeof FullscreenWidget>;
 
 export default function createFullscreenWidget(): Promise<IFullscreenWidget> {
   return createConnection<IFullscreenWidgetEvents>().then(connection =>
