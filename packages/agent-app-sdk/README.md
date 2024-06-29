@@ -247,6 +247,14 @@ This widget currently does not support any events.
 
 Displays a red badge on top of the Fullscreen app icon. Use this to notify Agents there’s something important inside the widget. Make sure Agents can dismiss the notification to avoid cluttered UI.
 
+#### `navigate(pathname: string): Promise<void>`
+
+Navigates LiveChat Agent App to given pathname.
+
+#### `setReportsFilters(filters: any): Promise<void>`
+
+Updates "Reports" section filters to given `filters` object.
+
 ## Settings widget (`ISettingsWidget`)
 
 ### Events
