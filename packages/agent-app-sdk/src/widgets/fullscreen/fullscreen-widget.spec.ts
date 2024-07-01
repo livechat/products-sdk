@@ -52,6 +52,44 @@ describe('FullscreenWidget', () => {
       null
     );
   });
+
+  it('has a `navigate` method', () => {
+    const connection = createMockConnection();
+    const widget = FullscreenWidget(connection);
+
+    expect(widget.navigate).toBeDefined();
+  });
+
+  it('`navigate` works correctly', () => {
+    const connection = createMockConnection();
+    const widget = FullscreenWidget(connection);
+
+    const path = '/some-path';
+    widget.navigate(path);
+    expect(connection.sendMessage).toHaveBeenCalledWith(
+      'navigate_from_fullscreen_widget',
+      path
+    );
+  });
+
+  it('has a `setReportsFilters` method', () => {
+    const connection = createMockConnection();
+    const widget = FullscreenWidget(connection);
+
+    expect(widget.setReportsFilters).toBeDefined();
+  });
+
+  it('`setReportsFilters` works correctly', () => {
+    const connection = createMockConnection();
+    const widget = FullscreenWidget(connection);
+
+    const filters = { stringFilter: 'value', numberFilter: 5 };
+    widget.setReportsFilters(filters);
+    expect(connection.sendMessage).toHaveBeenCalledWith(
+      'set_reports_filters',
+      filters
+    );
+  });
 });
 
 describe('createFullscreenWidget', () => {

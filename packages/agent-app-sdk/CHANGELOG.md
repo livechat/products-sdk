@@ -1,5 +1,11 @@
 # @livechat/agent-app-sdk
 
+## 1.9.0
+
+### Minor Changes
+
+- `navigate` and `setReportsFilters` methods in Fullscreen widgets
+
 ## 1.8.0
 
 ### Minor Changes

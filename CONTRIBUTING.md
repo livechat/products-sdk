@@ -10,9 +10,9 @@ We track public bugs in [GitHub Issues](https://github.com/livechat/products-sdk
 
 ## Development Workflow
 
-- Install the dependecies using `npm` or `yarn`. This will also bootstrap a monorepo installing dependencies inside each package and linking them together.
+- Install the dependecies using `npm`. This will also bootstrap a monorepo installing dependencies inside each package and linking them together.
 
-- Build the libraries using `npm build` or `yarn build` at the top level or inside single package.
+- Build the libraries using `npm build` at the top level or inside single package.
 
 ## Versioning
 

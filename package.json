@@ -15,6 +15,7 @@
     "version-packages": "changeset version",
     "release": "turbo run build lint test && changeset publish"
   },
+  "private": true,
   "workspaces": [
     "packages/*"
   ],
