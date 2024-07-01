@@ -1,4 +1,5 @@
 export {
   default as createFullscreenWidget,
-  IFullscreenWidget
+  IFullscreenWidget,
+  ReportsFilters
 } from './fullscreen-widget';

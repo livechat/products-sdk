@@ -4,7 +4,13 @@ import {
   createConnection,
   IConnection
 } from '@livechat/widget-core-sdk';
-import { IFullscreenWidgetApi, IFullscreenWidgetEvents } from './interfaces';
+import {
+  IFullscreenWidgetApi,
+  IFullscreenWidgetEvents,
+  ReportsFilters
+} from './interfaces';
+
+export { ReportsFilters } from './interfaces';
 
 export function FullscreenWidget(
   connection: IConnection<IFullscreenWidgetEvents>
@@ -24,7 +30,7 @@ export function FullscreenWidget(
           pathname
         );
       },
-      setReportsFilters(filters: any): Promise<void> {
+      setReportsFilters(filters: ReportsFilters): Promise<void> {
         return connection.sendMessage('set_reports_filters', filters);
       }
     }
