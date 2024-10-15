@@ -9,6 +9,7 @@ import {
   IFullscreenWidgetEvents,
   ReportsFilters
 } from './interfaces';
+import { withPageData } from '../shared/page-data';
 
 export { ReportsFilters } from './interfaces';
 
@@ -35,13 +36,17 @@ export function FullscreenWidget(
       }
     }
   );
-  return withAmplitude(base);
+  return withAmplitude(withPageData(base));
 }
 
 export type IFullscreenWidget = ReturnType<typeof FullscreenWidget>;
 
 export default function createFullscreenWidget(): Promise<IFullscreenWidget> {
-  return createConnection<IFullscreenWidgetEvents>().then(connection =>
-    FullscreenWidget(connection)
-  );
+  let widget: IFullscreenWidget;
+  return createConnection<IFullscreenWidgetEvents>()
+    .then(connection => {
+      widget = FullscreenWidget(connection);
+      return connection.sendMessage('plugin_inited');
+    })
+    .then(() => widget);
 }
