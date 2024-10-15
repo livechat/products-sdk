@@ -18,6 +18,15 @@ jest.mock('@livechat/widget-core-sdk', () => {
   };
 });
 
+jest.mock('../shared/page-data', () => {
+  return {
+    withPageData: jest.fn().mockImplementation(widget => ({
+      ...widget,
+      getPageData: jest.fn()
+    }))
+  };
+});
+
 describe('FullscreenWidget', () => {
   it('has a `setNotificationBadge` method', () => {
     const connection = createMockConnection();
