@@ -1,17 +1,9 @@
-import {
-  createWidget,
-  withAmplitude,
-  createConnection,
-  IConnection
-} from '@livechat/widget-core-sdk';
+import { createConnection, createWidget, IConnection, withAmplitude, withPayments } from '@livechat/widget-core-sdk';
 import { withCustomerProfile } from '../shared/customer-profile';
 import { withRichMessages } from '../shared/rich-messages';
 import assertSection from './custom-sections';
-import {
-  IDetailsWidgetEvents,
-  IDetailsWidgetApi,
-  ISection
-} from './interfaces';
+import { IDetailsWidgetApi, IDetailsWidgetEvents, ISection } from './interfaces';
+
 
 export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
   const base = createWidget<IDetailsWidgetApi, IDetailsWidgetEvents>(
@@ -33,7 +25,7 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
     }
   );
 
-  const widget = withAmplitude(withRichMessages(withCustomerProfile(base)));
+  const widget = withAmplitude(withRichMessages(withCustomerProfile(withPayments(base))));
 
   return widget;
 }
