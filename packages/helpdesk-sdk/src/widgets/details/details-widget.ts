@@ -1,16 +1,7 @@
-import {
-  createWidget,
-  withAmplitude,
-  createConnection,
-  IConnection
-} from '@livechat/widget-core-sdk';
-import { withTicketInfo } from './ticket-info';
+import { createConnection, createWidget, IConnection, withAmplitude, withPayments } from '@livechat/widget-core-sdk';
 import assertSection from './custom-sections';
-import {
-  IDetailsWidgetEvents,
-  IDetailsWidgetApi,
-  ISection
-} from './interfaces';
+import { IDetailsWidgetApi, IDetailsWidgetEvents, ISection } from './interfaces';
+import { withTicketInfo } from './ticket-info';
 
 export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
   const base = createWidget<IDetailsWidgetApi, IDetailsWidgetEvents>(
@@ -23,12 +14,12 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
     }
   );
 
-  const widget = withAmplitude(withTicketInfo(base));
+  const widget = withAmplitude(withTicketInfo(withPayments(base)));
 
   return widget;
 }
 
-export interface IDetailsWidget extends ReturnType<typeof DetailsWidget> {}
+export interface IDetailsWidget extends ReturnType<typeof DetailsWidget> { }
 
 export default function createDetailsWidget(): Promise<IDetailsWidget> {
   let widget: IDetailsWidget;
