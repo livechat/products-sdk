@@ -11,36 +11,77 @@ enum OutgoingTransactionEvents {
   RegisterTransactionFailure = 'register_transaction_failure',
 }
 
-interface ChargeBase {
-  id: string;
-  name: string;
-  price: number;
-  status: string;
-  per_account: boolean;
-  test: boolean;
+interface IPaymentIntent {
+  name: string,
+  price: number,
+  per_account: boolean,
+  test: boolean,
+  return_url: string | null,
+  months?: number,
+  trial_days?: number,
+  quantity?: number,
+  metadata: {
+    type: ChargeType,
+    isExternalTransaction: boolean,
+    showBillingCyclePicker: boolean,
+    icon: string,
+    description?: string,
+  }
 }
 
-interface DirectCharge extends ChargeBase {
+export interface IChargeBase {
+  id: string;
+  buyer_organization_id: string;
+  buyer_license_id: number;
+  buyer_account_id: string;
+  buyer_entity_id: string;
+  seller_client_id: string;
+  order_client_id: string;
+  order_organization_id: string;
+  name: string;
+  price: number;
+  return_url: string;
+  test: boolean;
+  per_account: boolean;
+  status: string;
+  confirmation_url: string;
+  commission_percent: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface IDirectCharge extends IChargeBase {
   quantity: number;
 }
 
-interface RecurrentCharge extends ChargeBase {
+export interface IRecurrentCharge extends IChargeBase {
   trial_days: number;
-  months: number
+  months: number;
+  external_id?: string;
+  trial_ends_at: string | null,
+  cancelled_at: string | null,
+  current_charge_at: string | null,
+  next_charge_at: string | null,
 }
 
-interface Details {
+export type TransactionEvent = { chargeId: string }
+export type TransactionError = { error: unknown }
+export type UpdateBillingCycleEvent = { billingCycle: number, paymentIntent: IPaymentIntent }
+
+export type Charge = IDirectCharge | IRecurrentCharge;
+export type Metadata = {
   icon: string;
-  description: string;
+  description?: string;
+  showBillingCyclePicker?: boolean;
 }
 
-type Charge = DirectCharge | RecurrentCharge;
-
-const isRecurrentCharge = (charge: Charge): charge is RecurrentCharge => {
-  return (charge as RecurrentCharge).months !== undefined;
+const getChargeType = (charge: Charge): ChargeType => {
+  return (charge as IRecurrentCharge).months !== undefined ? ChargeType.RecurrentCharge : ChargeType.DirectCharge;
 }
 
-const createPaymentIntent = (charge: Charge, details: Details) => {
+const createPaymentIntent = (charge: Charge, metadata: Metadata): IPaymentIntent => {
+  const type = getChargeType(charge)
+
   const base = {
     name: charge.name,
     price: charge.price,
@@ -48,39 +89,48 @@ const createPaymentIntent = (charge: Charge, details: Details) => {
     test: charge.test,
     return_url: null,
     metadata: {
-      type: isRecurrentCharge(charge) ? ChargeType.RecurrentCharge : ChargeType.DirectCharge,
+      type,
       isExternalTransaction: true,
-      icon: details.icon,
-      description: details.description,
+      icon: metadata.icon,
+      description: metadata.description,
+      showBillingCyclePicker: metadata.showBillingCyclePicker,
     }
   }
 
-  return isRecurrentCharge(charge)
-    ? { ...base, months: charge.months, trial_days: charge.trial_days }
-    : { ...base, quantity: charge.quantity }
+  return type === ChargeType.RecurrentCharge
+    ? { ...base, months: (charge as IRecurrentCharge).months, trial_days: (charge as IRecurrentCharge).trial_days }
+    : { ...base, quantity: (charge as IDirectCharge).quantity }
 }
 
 export interface IWithPaymentsApi {
-  startTransaction(charge: Charge, details: Details): void
+  startTransaction(charge: Charge, metadata: Metadata): void
+}
+
+export interface IWithPaymentsEvents {
+  transaction_declined: TransactionEvent;
+  transaction_accepted: TransactionEvent;
+  transaction_failed: TransactionError;
+  update_billing_cycle: UpdateBillingCycleEvent;
 }
 
 export const withPayments: WidgetMixin<
-  IWithPaymentsApi, void
+  IWithPaymentsApi,
+  IWithPaymentsEvents
 > = widget => {
   return {
     ...widget,
-    startTransaction(charge: Charge, details: Details) {
+    startTransaction(charge: Charge, metadata: Metadata) {
       try {
         if (!charge) {
           throw new Error('You have to provide charge details');
         }
 
-        if (!details || !details.icon || !details.description) {
-          throw new Error('You have to provide details with icon and description');
+        if (!metadata || !metadata.icon) {
+          throw new Error('You have to provide metadata with icon');
         }
 
         // Process the charge to ensure compatibility with OneClickPayment flow
-        const paymentIntent = createPaymentIntent(charge, details)
+        const paymentIntent = createPaymentIntent(charge, metadata)
 
         // Dispatch events to be handled by the OneClickPayment provider
         widget.sendMessage(OutgoingTransactionEvents.RegisterTransactionPending, { paymentIntent });
