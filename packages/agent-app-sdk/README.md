@@ -239,7 +239,15 @@ Gets the customer profile recorded most recently. Returns the `ICustomerProfile`
 
 ### Events
 
-This widget currently does not support any events.
+#### `page_data`
+
+Emitted when widget in initialized. The handler will get the main window page data object as an argument:
+
+```ts
+interface IPageData {
+  queryParams: object;
+}
+```
 
 ### Methods
 
@@ -254,6 +262,10 @@ Navigates LiveChat Agent App to given pathname.
 #### `setReportsFilters(filters: ReportsFilters): Promise<void>`
 
 Updates "Reports" section filters to given `filters` object.
+
+#### `getPageData(): IPageData | null`
+
+Gets the main window page data recorded most recently. Returns the `IPageData` object, which is identical to the one emitted by the `page_data` event or `null` (if no data were registered).
 
 ## Settings widget (`ISettingsWidget`)
 
