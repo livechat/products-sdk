@@ -18,6 +18,15 @@ jest.mock('@livechat/widget-core-sdk', () => {
   };
 });
 
+jest.mock('../shared/page-data', () => {
+  return {
+    withPageData: jest.fn().mockImplementation(widget => ({
+      ...widget,
+      getPageData: jest.fn()
+    }))
+  };
+});
+
 describe('FullscreenWidget', () => {
   it('has a `setNotificationBadge` method', () => {
     const connection = createMockConnection();
@@ -108,12 +117,13 @@ describe('createFullscreenWidget', () => {
   });
 
   it('returns the correct object with correct properties', async () => {
-    expect.assertions(4);
+    expect.assertions(5);
 
     const widget = await createFullscreenWidget();
     expect(widget).toHaveProperty('setNotificationBadge');
     expect(widget).toHaveProperty('on');
     expect(widget).toHaveProperty('off');
     expect(widget).toHaveProperty('sendMessage');
+    expect(widget).toHaveProperty('getPageData');
   });
 });
