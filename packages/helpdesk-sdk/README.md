@@ -82,6 +82,85 @@ createDetailsWidget().then(widget => {
 
 Each widget type offers a different set of events that you can listen to. Check them out in the descriptions below.
 
+## Payments
+
+All widgets allow you to pass a registered charge and display a summary of it to the customer within the payment modal in the helpdesk application, enabling them to complete or decline the transaction.
+
+### Events
+
+#### `transaction_accepted`
+
+Emitted when a payment transaction is approved by the customer and successfully processed by the Billing API.
+
+```ts
+interface ITransactionAccepted {
+  chargeId: string;
+}
+```
+
+#### `transaction_declined`
+
+Emitted when a payment transaction is declined by the customer (e.g., the user closes the payment modal or clicks the cancel button), and the charge is subsequently marked as declined in the Billing API.
+
+```ts
+interface ITransactionDeclined {
+  chargeId: string;
+}
+```
+#### `transaction_failed`
+
+Emitted when a payment transaction fails and cannot be processed by the billing API.
+
+```ts
+interface ITransactionAccepted {
+  error: unknown;
+}
+```
+
+#### `update_billing_cycle`
+
+This event is triggered when a customer selects a different billing cycle for a transaction. It only emits if the `showBillingCyclePicker` flag is set to `true` in the `metadata` object at the start of the transaction. The event includes the new billing cycle number and key charge details, allowing you to register the updated charge with the provided information.
+
+```ts
+interface ITransactionAccepted {
+  billingCycle: number,
+  paymentIntent: {
+    name: string,
+    price: number,
+    per_account: boolean,
+    test: boolean,
+    return_url: string | null,
+    months?: number,
+    trial_days?: number,
+    quantity?: number,
+    metadata: {
+      type: string,
+      isExternalTransaction: boolean,
+      showBillingCyclePicker: boolean,
+      icon: string,
+      description?: string,
+    }
+  }
+}
+```
+
+### Methods
+
+#### `startTransaction(charge: Charge, metadata: Metadata): Promise<void>`
+
+This method allows you to pass a registered charge and accompanying metadata to the HelpDesk App. The payment modal will then be displayed to the customer, enabling them to complete the transaction. For more information on registering a charge, refer to the [Billing API documentation](https://platform.text.com/docs/monetization/billing-api).
+
+```ts
+const charge = {...} // Billing API charge object
+const metadata = {
+  icon: "https://icon.url";
+  description: "This is a description of the transaction.";
+  showBillingCyclePicker: true; // optional, use if you want to display the billing cycle picker to the customer
+}
+
+widget.startTransaction(charge, metadata);
+```
+
 ## Details widget (`IDetailsWidget`)
 
 A type of widget that has access to the Chat Details context.
