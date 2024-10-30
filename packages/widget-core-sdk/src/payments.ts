@@ -66,7 +66,7 @@ export interface IRecurrentCharge extends IChargeBase {
 
 export type TransactionEvent = { chargeId: string }
 export type TransactionError = { error: unknown }
-export type UpdateBillingCycleEvent = { billingCycle: number, paymentIntent: IPaymentIntent }
+export type UpdateBillingCycleEvent = { billingCycle: number, paymentIntent: IPaymentIntent, chargeId: string }
 
 export type Charge = IDirectCharge | IRecurrentCharge;
 export type Metadata = {
