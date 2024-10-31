@@ -1,5 +1,16 @@
 # @livechat/helpdesk-sdk
 
+## 1.1.0
+
+### Minor Changes
+
+- 1f78de6: Added `startTransaction` for all widget types to support One-click Payment flow
+
+### Patch Changes
+
+- Updated dependencies [1f78de6]
+  - @livechat/widget-core-sdk@1.1.0
+
 ## 1.0.3
 
 ### Patch Changes

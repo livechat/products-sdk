@@ -117,7 +117,7 @@ All widgets allow you to pass a registered charge and display a summary of it to
 Emitted when a payment transaction is approved by the customer and successfully processed by the Billing API.
 
 ```ts
-interface ITransactionAccepted {
+type TransactionEvent {
   chargeId: string;
 }
 ```
@@ -127,7 +127,7 @@ interface ITransactionAccepted {
 Emitted when a payment transaction is declined by the customer (e.g., the user closes the payment modal or clicks the cancel button), and the charge is subsequently marked as declined in the Billing API.
 
 ```ts
-interface ITransactionDeclined {
+type TransactionEvent {
   chargeId: string;
 }
 ```
@@ -136,7 +136,7 @@ interface ITransactionDeclined {
 Emitted when a payment transaction fails and cannot be processed by the billing API.
 
 ```ts
-interface ITransactionAccepted {
+type TransactionError {
   error: unknown;
 }
 ```
@@ -146,7 +146,7 @@ interface ITransactionAccepted {
 This event is triggered when a customer selects a different billing cycle for a transaction. It only emits if the `showBillingCyclePicker` flag is set to `true` in the `metadata` object at the start of the transaction. The event includes the new billing cycle number and key charge details, allowing you to register the updated charge with the provided information.
 
 ```ts
-interface ITransactionAccepted {
+type UpdateBillingCycleEvent {
   billingCycle: number,
   paymentIntent: {
     name: string,
