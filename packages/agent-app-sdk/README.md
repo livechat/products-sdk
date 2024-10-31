@@ -148,6 +148,7 @@ This event is triggered when a customer selects a different billing cycle for a 
 ```ts
 type UpdateBillingCycleEvent {
   billingCycle: number,
+  chargeId: string,
   paymentIntent: {
     name: string,
     price: number,
