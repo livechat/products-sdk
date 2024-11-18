@@ -1,5 +1,22 @@
 # @livechat/agent-app-sdk
 
+## 1.11.0
+
+### Minor Changes
+
+- 1f78de6: Added `startTransaction` for all widget types to support One-click Payment flow
+
+### Patch Changes
+
+- Updated dependencies [1f78de6]
+  - @livechat/widget-core-sdk@1.1.0
+
+## 1.10.0
+
+### Minor Changes
+
+- [DPS-4294] extend page_data event for Fullscreen apps
+
 ## 1.9.0
 
 ### Minor Changes

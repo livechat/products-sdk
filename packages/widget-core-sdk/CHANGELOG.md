@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.1.0
+
+### Minor Changes
+
+- 1f78de6: Added `startTransaction` for all widget types to support One-click Payment flow
+
 ## 1.0.2
 
 ### Patch Changes
