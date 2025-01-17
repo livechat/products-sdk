@@ -5,7 +5,6 @@ import { withTheme } from '../shared/theme';
 import assertSection from './custom-sections';
 import { IDetailsWidgetApi, IDetailsWidgetEvents, ISection } from './interfaces';
 
-
 export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
   const base = createWidget<IDetailsWidgetApi, IDetailsWidgetEvents>(
     connection,
