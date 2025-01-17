@@ -1,5 +1,6 @@
 import { createConnection, createWidget, IConnection, withAmplitude, withPayments } from '@livechat/widget-core-sdk';
 import { withPageData } from '../shared/page-data';
+import { withTheme } from '../shared/theme';
 import { IFullscreenWidgetApi, IFullscreenWidgetEvents, ReportsFilters } from './interfaces';
 
 export { ReportsFilters } from './interfaces';
@@ -28,7 +29,7 @@ export function FullscreenWidget(
     }
   );
 
-  return withAmplitude(withPageData(withPayments(base)));
+  return withAmplitude(withPageData(withTheme(withPayments(base))));
 }
 
 export type IFullscreenWidget = ReturnType<typeof FullscreenWidget>;
