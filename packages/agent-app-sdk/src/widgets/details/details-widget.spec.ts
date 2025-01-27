@@ -31,6 +31,15 @@ jest.mock('../shared/rich-messages', () => {
   };
 });
 
+jest.mock('../shared/theme', () => {
+  return {
+    withTheme: jest.fn().mockImplementation(widget => ({
+      ...widget, 
+      getTheme: jest.fn()
+    }))
+  };
+});
+
 describe('DetailsWidget', () => {
   it('has a correct methods', () => {
     const connection = createMockConnection();
@@ -107,7 +116,7 @@ describe('createDetailsWidget', () => {
   });
 
   it('returns the correct object with correct properties', async () => {
-    expect.assertions(5);
+    expect.assertions(6);
 
     const widget = await createDetailsWidget();
 
@@ -116,5 +125,6 @@ describe('createDetailsWidget', () => {
     expect(widget).toHaveProperty('on');
     expect(widget).toHaveProperty('off');
     expect(widget).toHaveProperty('sendMessage');
+    expect(widget).toHaveProperty('getTheme');
   });
 });

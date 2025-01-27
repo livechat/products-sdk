@@ -26,6 +26,15 @@ jest.mock('../shared/page-data', () => {
   };
 });
 
+jest.mock('../shared/theme', () => {
+  return {
+    withTheme: jest.fn().mockImplementation(widget => ({
+      ...widget, 
+      getTheme: jest.fn()
+    }))
+  };
+});
+
 describe('SettingsWidget', () => {
   it('has a `redirect` method', () => {
     const connection = createMockConnection();
@@ -75,7 +84,7 @@ describe('createSettingsWidget', () => {
   });
 
   it('returns the correct object with correct properties', async () => {
-    expect.assertions(5);
+    expect.assertions(6);
 
     const widget = await createSettingsWidget();
     expect(widget).toHaveProperty('redirect');
@@ -83,5 +92,6 @@ describe('createSettingsWidget', () => {
     expect(widget).toHaveProperty('off');
     expect(widget).toHaveProperty('sendMessage');
     expect(widget).toHaveProperty('getPageData');
+    expect(widget).toHaveProperty('getTheme');
   });
 });
