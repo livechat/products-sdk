@@ -24,6 +24,15 @@ jest.mock('../shared/customer-profile', () => {
   };
 });
 
+jest.mock('../shared/theme', () => {
+  return {
+    withTheme: jest.fn().mockImplementation(widget => ({
+      ...widget, 
+      getTheme: jest.fn()
+    }))
+  };
+});
+
 jest.mock('../shared/rich-messages', () => {
   return {
     withRichMessages: jest.fn().mockImplementation(widget => widget)
@@ -72,7 +81,7 @@ describe('createMessageBoxWidget', () => {
   });
 
   it('returns the correct object with correct properties', async () => {
-    expect.assertions(5);
+    expect.assertions(6);
 
     const widget = await createMessageBoxWidget();
 
@@ -81,5 +90,6 @@ describe('createMessageBoxWidget', () => {
     expect(widget).toHaveProperty('off');
     expect(widget).toHaveProperty('sendMessage');
     expect(widget).toHaveProperty('trackEvent');
+    expect(widget).toHaveProperty('getTheme');
   });
 });

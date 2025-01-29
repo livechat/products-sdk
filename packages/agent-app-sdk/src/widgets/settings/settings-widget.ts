@@ -1,5 +1,6 @@
 import { createConnection, createWidget, IConnection, withAmplitude, withPayments } from '@livechat/widget-core-sdk';
 import { withPageData } from '../shared/page-data';
+import { withTheme } from '../shared/theme';
 import { ISettingsWidgetApi, ISettingsWidgetEvents } from './interfaces';
 
 export function SettingsWidget(connection: IConnection<ISettingsWidgetEvents>) {
@@ -11,7 +12,7 @@ export function SettingsWidget(connection: IConnection<ISettingsWidgetEvents>) {
       }
     }
   );
-  return withAmplitude(withPageData(withPayments(base)));
+  return withAmplitude(withPageData(withTheme(withPayments(base))));
 }
 
 export type ISettingsWidget = ReturnType<typeof SettingsWidget>;

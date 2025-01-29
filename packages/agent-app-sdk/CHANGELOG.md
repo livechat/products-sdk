@@ -1,5 +1,11 @@
 # @livechat/agent-app-sdk
 
+## 1.12.0
+
+### Minor Changes
+
+- aab5da0: Added support for retrieving theme values via the `getTheme` method or by listening to the `change_theme` event
+
 ## 1.11.0
 
 ### Minor Changes

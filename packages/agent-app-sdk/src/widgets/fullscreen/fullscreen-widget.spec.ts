@@ -27,6 +27,15 @@ jest.mock('../shared/page-data', () => {
   };
 });
 
+jest.mock('../shared/theme', () => {
+  return {
+    withTheme: jest.fn().mockImplementation(widget => ({
+      ...widget, 
+      getTheme: jest.fn()
+    }))
+  };
+});
+
 describe('FullscreenWidget', () => {
   it('has a `setNotificationBadge` method', () => {
     const connection = createMockConnection();
@@ -117,7 +126,7 @@ describe('createFullscreenWidget', () => {
   });
 
   it('returns the correct object with correct properties', async () => {
-    expect.assertions(5);
+    expect.assertions(6);
 
     const widget = await createFullscreenWidget();
     expect(widget).toHaveProperty('setNotificationBadge');
@@ -125,5 +134,6 @@ describe('createFullscreenWidget', () => {
     expect(widget).toHaveProperty('off');
     expect(widget).toHaveProperty('sendMessage');
     expect(widget).toHaveProperty('getPageData');
+    expect(widget).toHaveProperty('getTheme');
   });
 });
