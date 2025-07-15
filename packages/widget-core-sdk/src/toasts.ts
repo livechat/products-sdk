@@ -1,4 +1,4 @@
-import { WidgetMixin } from '@livechat/widget-core-sdk';
+import { WidgetMixin } from './widget';
 
 type ToastKind = 'success' | 'error';
 
