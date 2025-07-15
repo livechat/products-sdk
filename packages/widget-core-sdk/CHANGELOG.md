@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.2.0
+
+### Minor Changes
+
+- f494673: Add functionality to display toast notifications in the parent environment
+
 ## 1.1.0
 
 ### Minor Changes
