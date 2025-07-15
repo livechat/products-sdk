@@ -1,4 +1,4 @@
-import { createConnection, createWidget, IConnection, withAmplitude, withPayments } from '@livechat/widget-core-sdk';
+import { createConnection, createWidget, IConnection, withAmplitude, withPayments, withToasts } from '@livechat/widget-core-sdk';
 import assertSection from './custom-sections';
 import { IDetailsWidgetApi, IDetailsWidgetEvents, ISection } from './interfaces';
 import { withTicketInfo } from './ticket-info';
@@ -14,7 +14,7 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
     }
   );
 
-  const widget = withAmplitude(withTicketInfo(withPayments(base)));
+  const widget = withAmplitude(withTicketInfo(withToasts(withPayments(base))));
 
   return widget;
 }

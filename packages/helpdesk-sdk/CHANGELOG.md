@@ -1,5 +1,16 @@
 # @livechat/helpdesk-sdk
 
+## 1.2.0
+
+### Minor Changes
+
+- f494673: Add functionality to display toast notifications in the parent environment
+
+### Patch Changes
+
+- Updated dependencies [f494673]
+  - @livechat/widget-core-sdk@1.2.0
+
 ## 1.1.0
 
 ### Minor Changes

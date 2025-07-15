@@ -5,12 +5,14 @@ const ALLOWED_DOMAINS = [
   'livechatinc.com',
   'livechat.com',
   'my.lc:3000',
-  'legacy.lc:3001'
+  'legacy.lc:3001',
+  'text.com',
+  'helpdesk.com'
 ];
 
 /**
  * Returns `true`, if origin is allowed to communicate with Agent App SDK.
- * @param {string} origin Origin of `message` event targetting Agent App SDK.
+ * @param {string} origin Origin of `message` event targeting Agent App SDK.
  * @
  */
 export function getIsEventOriginAllowed(origin: string): boolean {
@@ -21,10 +23,10 @@ export function getIsEventOriginAllowed(origin: string): boolean {
   try {
     const originURL = new URL(origin);
     const originDomain = originURL.hostname;
-    const splitted = originDomain.split('.');
-    const domainOnly = splitted.slice(splitted.length - 2).join('.');
+    const split = originDomain.split('.');
+    const domainOnly = split.slice(split.length - 2).join('.');
 
-    // As .lc domain is registerable we restrict our development environment
+    // As .lc domain is registrable we restrict our development environment
     // based on port usage.
     const toBeVerified = originURL.port
       ? `${domainOnly}:${originURL.port}`

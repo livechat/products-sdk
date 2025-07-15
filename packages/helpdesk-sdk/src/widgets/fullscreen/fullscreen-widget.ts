@@ -1,4 +1,4 @@
-import { createConnection, createWidget, IConnection, withAmplitude, withPayments } from '@livechat/widget-core-sdk';
+import { createConnection, createWidget, IConnection, withAmplitude, withPayments, withToasts } from '@livechat/widget-core-sdk';
 import { IFullscreenWidgetApi, IFullscreenWidgetEvents } from './interfaces';
 
 export function FullscreenWidget(
@@ -16,7 +16,7 @@ export function FullscreenWidget(
     }
   );
 
-  return withAmplitude(withPayments(base));
+  return withAmplitude(withToasts(withPayments(base)));
 }
 
 export interface IFullscreenWidget
