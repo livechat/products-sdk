@@ -16,7 +16,7 @@ export function FullscreenWidget(
     }
   );
 
-  return withAmplitude(withPayments(base));
+  return withAmplitude(withToasts(withPayments(base)));
 }
 
 export interface IFullscreenWidget
