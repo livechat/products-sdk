@@ -1,5 +1,13 @@
 # @livechat/helpdesk-sdk
 
+## 1.2.1
+
+### Patch Changes
+
+- Add missing types for setToast method
+- Updated dependencies
+  - @livechat/widget-core-sdk@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes

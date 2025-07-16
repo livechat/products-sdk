@@ -1,5 +1,13 @@
 # @livechat/agent-app-sdk
 
+## 1.13.1
+
+### Patch Changes
+
+- Add missing types for setToast method
+- Updated dependencies
+  - @livechat/widget-core-sdk@1.2.1
+
 ## 1.13.0
 
 ### Minor Changes
