@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.2.1
+
+### Patch Changes
+
+- Add missing types for setToast method
+
 ## 1.2.0
 
 ### Minor Changes

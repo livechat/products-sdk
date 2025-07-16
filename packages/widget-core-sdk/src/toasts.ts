@@ -8,17 +8,14 @@ export interface IToast {
 }
 
 export interface IWithToastApi {
-  setToast(): Promise<void>;
+  setToast(toast: IToast): Promise<void>;
 }
 
 export const withToasts: WidgetMixin<IWithToastApi, void> = widget => {
   return {
     ...widget,
     setToast(toast: IToast) {
-      return widget.sendMessage(
-        'set_toast',
-        toast
-      );
+      return widget.sendMessage('set_toast', toast);
     }
   };
 };
