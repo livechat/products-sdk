@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import replace from 'rollup-plugin-replace';
-import { uglify } from 'rollup-plugin-uglify';
+import terser from '@rollup/plugin-terser';
 
 import pkg from './package.json' with { type: 'json' };
 
@@ -56,7 +56,7 @@ const createConfig = ({ output, min = false, external = 'all', env }) => ({
       replace({
         'process.env.NODE_ENV': JSON.stringify(env)
       }),
-    min && uglify()
+      min && terser()
   ]
 });
 
