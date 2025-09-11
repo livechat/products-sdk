@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.3.0
+
+### Minor Changes
+
+- 906f6fd: Addressed security vulnerabilities in the packages
+
 ## 1.2.1
 
 ### Patch Changes

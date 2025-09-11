@@ -1,5 +1,16 @@
 # @livechat/helpdesk-sdk
 
+## 1.3.0
+
+### Minor Changes
+
+- 906f6fd: Addressed security vulnerabilities in the packages
+
+### Patch Changes
+
+- Updated dependencies [906f6fd]
+  - @livechat/widget-core-sdk@1.3.0
+
 ## 1.2.1
 
 ### Patch Changes
