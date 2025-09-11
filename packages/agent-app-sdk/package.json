@@ -3,7 +3,6 @@
   "version": "1.13.1",
   "description": "SDK for extending LiveChat's Agent App",
   "license": "MIT",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/livechat/products-sdk.git"

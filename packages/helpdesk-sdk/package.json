@@ -3,7 +3,6 @@
   "version": "1.2.1",
   "description": "SDK for extending HelpDesk App",
   "license": "MIT",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/livechat/products-sdk.git"
