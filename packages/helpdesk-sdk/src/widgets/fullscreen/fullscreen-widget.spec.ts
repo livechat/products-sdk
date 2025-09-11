@@ -1,11 +1,12 @@
 import { IConnection, createConnection } from '@livechat/widget-core-sdk';
 import createFullscreenWidget, { FullscreenWidget } from './fullscreen-widget';
 import { IFullscreenWidgetEvents } from './interfaces';
+import { Mitt } from '@livechat/mitt/types';
 
 const createMockConnection = (): IConnection<IFullscreenWidgetEvents> => {
   const mockConnection: IConnection<IFullscreenWidgetEvents> = {
     sendMessage: jest.fn(() => Promise.resolve()),
-    emitter: jest.fn()
+    emitter: jest.fn() as unknown as Mitt<IFullscreenWidgetEvents>,
   };
   return mockConnection;
 };

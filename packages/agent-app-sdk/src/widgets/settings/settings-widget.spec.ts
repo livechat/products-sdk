@@ -1,11 +1,12 @@
 import { IConnection, createConnection } from '@livechat/widget-core-sdk';
 import createSettingsWidget, { SettingsWidget } from './settings-widget';
 import { ISettingsWidgetEvents } from './interfaces';
+import { Mitt } from '@livechat/mitt/types';
 
 const createMockConnection = (): IConnection<ISettingsWidgetEvents> => {
   return {
     sendMessage: jest.fn(() => Promise.resolve()),
-    emitter: jest.fn()
+    emitter: jest.fn() as unknown as Mitt<ISettingsWidgetEvents>,
   };
 };
 
@@ -29,7 +30,7 @@ jest.mock('../shared/page-data', () => {
 jest.mock('../shared/theme', () => {
   return {
     withTheme: jest.fn().mockImplementation(widget => ({
-      ...widget, 
+      ...widget,
       getTheme: jest.fn()
     }))
   };
