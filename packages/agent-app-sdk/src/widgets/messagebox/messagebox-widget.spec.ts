@@ -1,11 +1,12 @@
 import { IConnection, createConnection } from '@livechat/widget-core-sdk';
 import createMessageBoxWidget, { MessageBoxWidget } from './messagebox-widget';
 import { IMessageBoxWidgetEvents } from './interfaces';
+import { Mitt } from '@livechat/mitt/types';
 
 const createMockConnection = (): IConnection<IMessageBoxWidgetEvents> => {
   const mockConnection: IConnection<IMessageBoxWidgetEvents> = {
     sendMessage: jest.fn(() => Promise.resolve()),
-    emitter: jest.fn()
+    emitter: jest.fn() as unknown as Mitt<IMessageBoxWidgetEvents>,
   };
   return mockConnection;
 };
@@ -27,7 +28,7 @@ jest.mock('../shared/customer-profile', () => {
 jest.mock('../shared/theme', () => {
   return {
     withTheme: jest.fn().mockImplementation(widget => ({
-      ...widget, 
+      ...widget,
       getTheme: jest.fn()
     }))
   };

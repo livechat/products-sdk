@@ -2,11 +2,12 @@ import { IConnection, createConnection } from '@livechat/widget-core-sdk';
 import createDetailsWidget, { DetailsWidget } from './details-widget';
 import { IDetailsWidgetEvents } from './interfaces';
 import * as assertSection from './custom-sections';
+import { Mitt } from '@livechat/mitt/types';
 
 const createMockConnection = (): IConnection<IDetailsWidgetEvents> => {
   const mockConnection: IConnection<IDetailsWidgetEvents> = {
     sendMessage: jest.fn(() => Promise.resolve()),
-    emitter: jest.fn()
+    emitter: jest.fn() as unknown as Mitt<IDetailsWidgetEvents>,
   };
   return mockConnection;
 };
@@ -37,17 +38,18 @@ describe('DetailsWidget', () => {
   it('calls modifySections and sendMessage with correct arguments', () => {
     const assertSectionSpy = jest
       .spyOn(assertSection, 'default')
-      .mockReturnValue(true);
+      .mockReturnValue();
     const connection = createMockConnection();
-
     const widget = DetailsWidget(connection);
 
-    widget.modifySection('foo');
+    const mockedSection = { title: "test", components: [] };
 
-    expect(assertSectionSpy).toHaveBeenCalledWith('foo');
+    widget.modifySection(mockedSection);
+
+    expect(assertSectionSpy).toHaveBeenCalledWith(mockedSection);
     expect(connection.sendMessage).toHaveBeenCalledWith(
       'customer_details_section',
-      'foo'
+      mockedSection
     );
   });
 });
