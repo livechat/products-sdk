@@ -1,4 +1,12 @@
-import { createConnection, createWidget, IConnection, withAmplitude, withPayments, withToasts } from '@livechat/widget-core-sdk';
+import {
+  createConnection,
+  createWidget,
+  IConnection,
+  withAmplitude,
+  withChatWidget,
+  withPayments,
+  withToasts
+} from '@livechat/widget-core-sdk';
 import { IFullscreenWidgetApi, IFullscreenWidgetEvents } from './interfaces';
 
 export function FullscreenWidget(
@@ -16,11 +24,11 @@ export function FullscreenWidget(
     }
   );
 
-  return withAmplitude(withToasts(withPayments(base)));
+  return withAmplitude(withChatWidget(withToasts(withPayments(base))));
 }
 
 export interface IFullscreenWidget
-  extends ReturnType<typeof FullscreenWidget> { }
+  extends ReturnType<typeof FullscreenWidget> {}
 
 export default function createFullscreenWidget(): Promise<IFullscreenWidget> {
   return createConnection<IFullscreenWidgetEvents>().then(connection =>
