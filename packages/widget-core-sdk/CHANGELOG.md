@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.4.0
+
+### Minor Changes
+
+- fd24557: Add functionality to open Chat Widget in the parent environment
+
 ## 1.3.0
 
 ### Minor Changes

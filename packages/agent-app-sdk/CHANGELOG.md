@@ -1,5 +1,16 @@
 # @livechat/agent-app-sdk
 
+## 1.15.0
+
+### Minor Changes
+
+- fd24557: Add functionality to open Chat Widget in the parent environment
+
+### Patch Changes
+
+- Updated dependencies [fd24557]
+  - @livechat/widget-core-sdk@1.4.0
+
 ## 1.14.0
 
 ### Minor Changes
