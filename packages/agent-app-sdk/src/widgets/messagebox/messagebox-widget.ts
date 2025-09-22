@@ -1,8 +1,20 @@
-import { createConnection, createWidget, IConnection, withAmplitude, withPayments, withToasts } from '@livechat/widget-core-sdk';
+import {
+  createConnection,
+  createWidget,
+  IConnection,
+  withAmplitude,
+  withChatWidget,
+  withPayments,
+  withToasts
+} from '@livechat/widget-core-sdk';
 import { withCustomerProfile } from '../shared/customer-profile';
 import { withRichMessages } from '../shared/rich-messages';
 import { withTheme } from '../shared/theme';
-import { IMessageBoxWidgetApi, IMessageBoxWidgetEvents, IRichMessage } from './interfaces';
+import {
+  IMessageBoxWidgetApi,
+  IMessageBoxWidgetEvents,
+  IRichMessage
+} from './interfaces';
 
 export function MessageBoxWidget(
   connection: IConnection<IMessageBoxWidgetEvents>
@@ -22,7 +34,13 @@ export function MessageBoxWidget(
     }
   );
 
-  const widget = withAmplitude(withRichMessages(withCustomerProfile(withTheme(withToasts(withPayments(base))))));
+  const widget = withAmplitude(
+    withRichMessages(
+      withCustomerProfile(
+        withTheme(withChatWidget(withToasts(withPayments(base))))
+      )
+    )
+  );
 
   return widget;
 }
