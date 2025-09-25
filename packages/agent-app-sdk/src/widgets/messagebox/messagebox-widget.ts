@@ -5,7 +5,8 @@ import {
   withAmplitude,
   withChatWidget,
   withPayments,
-  withToasts
+  withToasts,
+  withProperties
 } from '@livechat/widget-core-sdk';
 import { withCustomerProfile } from '../shared/customer-profile';
 import { withRichMessages } from '../shared/rich-messages';
@@ -37,7 +38,9 @@ export function MessageBoxWidget(
   const widget = withAmplitude(
     withRichMessages(
       withCustomerProfile(
-        withTheme(withChatWidget(withToasts(withPayments(base))))
+        withTheme(
+          withProperties(withChatWidget(withToasts(withPayments(base))))
+        )
       )
     )
   );

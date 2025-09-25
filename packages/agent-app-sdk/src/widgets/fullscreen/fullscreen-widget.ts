@@ -5,7 +5,8 @@ import {
   withAmplitude,
   withChatWidget,
   withPayments,
-  withToasts
+  withToasts,
+  withProperties
 } from '@livechat/widget-core-sdk';
 import { withPageData } from '../shared/page-data';
 import { withTheme } from '../shared/theme';
@@ -42,7 +43,9 @@ export function FullscreenWidget(
   );
 
   return withAmplitude(
-    withPageData(withTheme(withChatWidget(withToasts(withPayments(base)))))
+    withPageData(
+      withTheme(withProperties(withChatWidget(withToasts(withPayments(base)))))
+    )
   );
 }
 

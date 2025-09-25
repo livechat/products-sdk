@@ -5,7 +5,8 @@ import {
   withAmplitude,
   withChatWidget,
   withPayments,
-  withToasts
+  withToasts,
+  withProperties
 } from '@livechat/widget-core-sdk';
 import { IFullscreenWidgetApi, IFullscreenWidgetEvents } from './interfaces';
 
@@ -24,7 +25,9 @@ export function FullscreenWidget(
     }
   );
 
-  return withAmplitude(withChatWidget(withToasts(withPayments(base))));
+  return withAmplitude(
+    withProperties(withChatWidget(withToasts(withPayments(base))))
+  );
 }
 
 export interface IFullscreenWidget
