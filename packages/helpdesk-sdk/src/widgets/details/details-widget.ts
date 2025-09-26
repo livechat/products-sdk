@@ -5,7 +5,8 @@ import {
   withAmplitude,
   withChatWidget,
   withPayments,
-  withToasts
+  withToasts,
+  withProperties
 } from '@livechat/widget-core-sdk';
 import assertSection from './custom-sections';
 import {
@@ -27,7 +28,9 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
   );
 
   const widget = withAmplitude(
-    withTicketInfo(withChatWidget(withToasts(withPayments(base))))
+    withTicketInfo(
+      withProperties(withChatWidget(withToasts(withPayments(base))))
+    )
   );
 
   return widget;

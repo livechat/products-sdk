@@ -5,7 +5,8 @@ import {
   withAmplitude,
   withChatWidget,
   withPayments,
-  withToasts
+  withToasts,
+  withProperties
 } from '@livechat/widget-core-sdk';
 import { withCustomerProfile } from '../shared/customer-profile';
 import { withRichMessages } from '../shared/rich-messages';
@@ -41,7 +42,9 @@ export function DetailsWidget(connection: IConnection<IDetailsWidgetEvents>) {
     withRichMessages(
       withCustomerProfile(
         withTheme(
-          withChatWidget(withChatWidget(withToasts(withPayments(base))))
+          withProperties(
+            withChatWidget(withChatWidget(withToasts(withPayments(base))))
+          )
         )
       )
     )

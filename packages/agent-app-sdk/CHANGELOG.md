@@ -1,5 +1,16 @@
 # @livechat/agent-app-sdk
 
+## 1.16.0
+
+### Minor Changes
+
+- 21da94f: Add functionality to notify parent environment about application-specific properties update
+
+### Patch Changes
+
+- Updated dependencies [21da94f]
+  - @livechat/widget-core-sdk@1.5.0
+
 ## 1.15.0
 
 ### Minor Changes

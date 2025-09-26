@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.5.0
+
+### Minor Changes
+
+- 21da94f: Add functionality to notify parent environment about application-specific properties update
+
 ## 1.4.0
 
 ### Minor Changes
