@@ -4,12 +4,11 @@ enum PropertiesEvents {
   UpdateProperties = 'update_properties'
 }
 
-export interface IUpdateProperties {
+export type IUpdateProperties = {
   onboarded?: boolean;
   plan?: string;
   error_code?: string | null;
-  [key: string]: string | number | boolean | null | undefined;
-}
+} & Record<string, string | number | boolean | null | undefined>;
 
 export interface IPropertiesApi {
   updateProperties(properties?: IUpdateProperties): Promise<void>;
