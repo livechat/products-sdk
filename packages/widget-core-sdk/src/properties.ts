@@ -7,7 +7,7 @@ enum PropertiesEvents {
 export interface IUpdateProperties {
   onboarded?: boolean;
   plan?: string;
-  error_code?: string;
+  error_code?: string | null;
   [key: string]: string | number | boolean | null | undefined;
 }
 
