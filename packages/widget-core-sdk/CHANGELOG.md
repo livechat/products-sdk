@@ -1,5 +1,11 @@
 # @livechat/widget-core-sdk
 
+## 1.5.1
+
+### Patch Changes
+
+- 5840212: Updated properties method types
+
 ## 1.5.0
 
 ### Minor Changes
